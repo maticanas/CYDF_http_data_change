@@ -26,5 +26,6 @@ with pydivert.WinDivert("tcp and tcp.PayloadLength > 0") as w:
         if(packet.is_inbound): # 들어오는 패
             payload = packet.tcp.payload
             payload = payload.replace(b'Michael', b'Gilbert')
+            payload = payloda.replace(b'michael', b'gilbert')
             packet.tcp.payload = payload
         w.send(packet, True) # 여기서 두 번째 인자는 바꾼 패킷에 대하여 다시 checksum을 계산할거냐에 대한 옵션
